@@ -20,13 +20,19 @@ The source may be instance or static. If the source is not in the same type as t
 ### Output
 
 ```markdown
-| Method |  x |  y |      Mean |     Error |    StdDev |
-|------- |--- |--- |----------:|----------:|----------:|
-|    Pow |  1 |  1 |  9.360 ns | 0.0190 ns | 0.0149 ns |
-|    Pow |  2 |  2 | 40.624 ns | 0.3413 ns | 0.3192 ns |
-|    Pow |  4 |  4 | 40.537 ns | 0.0560 ns | 0.0524 ns |
-|    Pow | 10 | 10 | 40.395 ns | 0.3274 ns | 0.3063 ns |
+|         Method |             time |  x |  y |              Mean |         Error |        StdDev |
+|--------------- |----------------- |--- |--- |------------------:|--------------:|--------------:|
+|  ManyArguments |                ? |  1 |  1 |          3.123 ns |     0.0019 ns |     0.0017 ns |
+|  ManyArguments |                ? |  2 |  2 |         14.027 ns |     0.0553 ns |     0.0517 ns |
+|  ManyArguments |                ? |  4 |  4 |         13.934 ns |     0.0456 ns |     0.0427 ns |
+|  ManyArguments |                ? | 10 | 10 |         13.914 ns |     0.0298 ns |     0.0279 ns |
+| SingleArgument | 00:00:00.0100000 |  ? |  ? | 15,355,576.748 ns | 3,811.0463 ns | 3,378.7411 ns |
+| SingleArgument | 00:00:00.1000000 |  ? |  ? | 111,718,492.38 ns | 3,219.7949 ns | 2,854.1234 ns |
 ```
+
+> **Note:** The `?` marks indicate that a particular argument is not defined for the given benchmark method.
+> For example, `ManyArguments` has `x` and `y` arguments but no `time` argument, while `SingleArgument`
+> has a `time` argument but no `x` or `y` arguments.
 
 ### Another example
 
